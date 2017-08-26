@@ -24,21 +24,67 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+   
+    
+    <link rel="icon" type="image/png" href="assets/img//favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/rubick.css" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+    <link href="assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="assets/css/fonts/Rubik-Fonts.css" rel="stylesheet" />
+ <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
+<nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
+
+    <div class="container">
+    <div class="navbar-header">
+        <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar bar1"></span>
+            <span class="icon-bar bar2"></span>
+            <span class="icon-bar bar3"></span>
+        </button>
+        <a href="" class="navbar-brand">
+           Cazza
+        </a>
+    </div>
+
+    <div class="navbar-scroll-to collapse navbar-collapse" >
+      <ul class="nav navbar-nav navbar-right navbar-uppercase">
+           
+            <li class="social-links">
+                <a href="/user/create">
+                    <i class="fa fa-child" aria-hidden="true"></i>
+                </a>
+            </li>
+       </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
+            <div id="userProf" class=" col-md-4">
                 <h1>User profile</h1>
                 <table class="profile table table-hover"></table>
                 <a href="/"><button>Go to Budget</button></a>
+                <a href="/"><button>Show Contractors</button></a>
             </div>
+            <span id="pinBoard"></span>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.js"></script>
+    <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 
     <script type='text/javascript'>
         var url = $.url(window.location);
@@ -47,22 +93,26 @@
             .done(function(response) {
                 var html = '';
                 html += '<tr><td><img src="'+ response.image_link +'"></td></tr>';
-                html += '<tr><td> First Name:' + response.first_name + '</td></tr>';
-                html += '<tr><td> Last Name:' + response.last_name + '</td></tr>';
-                html += '<tr><td> Addess:' + response.address + '</td></tr>';
-                html += '<tr><td> City:' + response.city + '</td></tr>';
-                html += '<tr><td> State:' + response.state + '</td></tr>';
-                html += '<tr><td> Zip:' + response.zip + '</td></tr>';
-                html += '<tr><td> Phone:' + response.phone + '</td></tr>';
-                html += '<tr><td> Houzz:' + response.houzz_board + '</td></tr>';
-                html += '<tr><td> Budget' + response.budget + '</td></tr>';
-                html += '<tr><td> Type of project:' + response.project_type + '</td></tr>';
-                html += '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="'+ response.pinterest_board +'"></a>';
+                html += '<tr><td> First Name: ' + response.first_name + '</td></tr>';
+                html += '<tr><td> Last Name: ' + response.last_name + '</td></tr>';
+                html += '<tr><td> Addess: ' + response.address + '</td></tr>';
+                html += '<tr><td> City: ' + response.city + '</td></tr>';
+                html += '<tr><td> State: ' + response.state + '</td></tr>';
+                html += '<tr><td> Zip: ' + response.zip + '</td></tr>';
+                html += '<tr><td> Phone: ' + response.phone + '</td></tr>';
+                html += '<tr><td> Houzz: ' + response.houzz_board + '</td></tr>';
+                html += '<tr><td> Budget: ' + response.budget + '</td></tr>';
+                html += '<tr><td> Type of project: ' + response.project_type + '</td></tr>';
                 $('.profile').html(html);
+                // pinterest board html
+                board = '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="240" href="'+ response.pinterest_board +'"></a>';
+                $("#pinBoard").html(board);
+
+                
             });
     </script>
 
-<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
 </body>
-<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/pinterest/official-news/"></a>
+
 </html>
