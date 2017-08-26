@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Moment.js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <h1>User profile</h1>
+                <table class="profile table table-hover"></table>
+                <a href="/"><button>Go to Budget</button></a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.js"></script>
+
+    <script type='text/javascript'>
+        var url = $.url(window.location);
+
+        $.get('/api/user/' + url.param('user'))
+            .done(function(response) {
+                var html = '';
+                html += '<tr><td><img src="'+ response.image_link +'"></td></tr>';
+                html += '<tr><td> First Name:' + response.first_name + '</td></tr>';
+                html += '<tr><td> Last Name:' + response.last_name + '</td></tr>';
+                html += '<tr><td> Addess:' + response.address + '</td></tr>';
+                html += '<tr><td> City:' + response.city + '</td></tr>';
+                html += '<tr><td> State:' + response.state + '</td></tr>';
+                html += '<tr><td> Zip:' + response.zip + '</td></tr>';
+                html += '<tr><td> Phone:' + response.phone + '</td></tr>';
+                html += '<tr><td> Houzz:' + response.houzz_board + '</td></tr>';
+                html += '<tr><td> Budget' + response.budget + '</td></tr>';
+                html += '<tr><td> Type of project:' + response.project_type + '</td></tr>';
+                html += '<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="'+ response.pinterest_board +'"></a>';
+                $('.profile').html(html);
+            });
+    </script>
+
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+</body>
+<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/pinterest/official-news/"></a>
+</html>

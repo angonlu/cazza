@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contractor Sign Up!</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Moment.js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <h1 class="text-center">Contractor!</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <p class="cool-font">Company Business Name</p>
+                <input class="form-control" type="text" id="contractor_name" placeholder="Enter Your Name">
+                <br>
+                <p class="cool-font">Contact First Name</p>
+                <input class="form-control" type="text" id="contact_first" placeholder="Enter Your First Name">
+                <br>
+                <p class="cool-font">Contact Last Name</p>
+                <input class="form-control" type="text" id="contact_last" placeholder="Enter Your Last Name">
+                <br>
+                <p class="cool-font">Trade Category</p>
+                <input class="form-control" type="text" id="construction_trade" placeholder="Enter Your Last Name">
+                <br>
+                <p class="cool-font">City</p>
+                <input class="form-control" type="text" id="city" placeholder="Enter Your City">
+                <br>
+                <p class="cool-font">State</p>
+                <input class="form-control" type="text" id="state" placeholder="Enter Your State">
+                <br>
+                <p class="cool-font">Zip Code</p>
+                <input class="form-control" type="text" id="zip_code" placeholder="Enter Your Zip Code">
+                <br>
+                <p class="cool-font">Phone</p>
+                <input class="form-control" type="text" id="phone" placeholder="Enter Your Phone">
+                <br>
+                <p class="cool-font">Website</p>
+                <input class="form-control" type="text" id="website" placeholder="Enter Your Website">
+                <br>
+                <p class="cool-font">License Number</p>
+                <input class="form-control" type="text" id="license_number" placeholder="Enter Your License">
+                <br>
+                <p class="cool-font">Business Description</p>
+                <textarea class="form-control" rows="3" id="business_description" placeholder="Enter Business Description!"></textarea>
+                <br>
+                <p class="cool-font">Photo Link</p>
+                <input class="form-control" type="text" id="photo_link" placeholder="Enter Your Photo Link">
+                <br>
+                <button id="contractor-submit" class="btn btn-lg pull-right">Submit!</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h2>contractors</h2>
+                <hr>
+                <div id="contractor-area"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="/public/js/contractor.js"></script>
+</body>
+
+</html>
